@@ -24,7 +24,7 @@ jobs:
 
       - name: Run main script
         env:
-          GEMINI_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY }}
           RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
           AGENTMAIL_INBOX_ID: ${{ secrets.AGENTMAIL_INBOX_ID }}
