@@ -40,7 +40,7 @@ For the automation to work, add the variables above to your GitHub Repository un
 The bot is currently configured to run daily at 10:00 UTC. You can modify the frequency in .github/workflows/main.yml.
 
 # **🧰 Tech Stack**
-- **LLM: Google Gemini 1.5 Flash**
+- **LLM: Google Gemini 3 Flash**
 - **Orchestration: LangChain**
 - **Email: AgentMail**
 - **Automation: GitHub Actions**
