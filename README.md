@@ -28,7 +28,7 @@ pip install -r requirements.txt
 **3. Environment Variables**
 Create a .env file for local testing:
 ```
-GOOGLE_API_KEY=your_gemini_key
+GEMINI_API_KEY=your_gemini_key
 AGENTMAIL_API_KEY=your_agentmail_key
 AGENTMAIL_INBOX_ID=your_inbox_address
 RECEIVER_EMAIL=your_email@example.com
