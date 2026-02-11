@@ -12,8 +12,7 @@ The system follows a simple but effective pipeline:
 - **Trigger**: GitHub Actions wakes up the script on a cron schedule.
 - **Search**: The agent uses DuckDuckGoSearchRun to find articles from the last 24 hours.
 - **Process**: Gemini analyzes the findings and formats a report.
-
-Send: The recap is dispatched via the AgentMail SDK to the configured recipient.
+- **Send**: The recap is dispatched via the AgentMail SDK to the configured recipient.
 
 # 🚀 Setup & Installation
 **1. Clone the repo**
