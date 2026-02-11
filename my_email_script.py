@@ -1,19 +1,25 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import os
+from agentmail import AgentMail
+from dotenv import load_dotenv
 
-def send_email(subject: str, body: str):
-    msg = MIMEMultipart()
-    msg["From"] = os.environ["EMAIL_ADDRESS"]
-    msg["To"] = os.environ["EMAIL_TO"]
-    msg["Subject"] = subject
+load_dotenv()
 
-    msg.attach(MIMEText(body, "plain"))
+def send_email(subject, body):
+    # Initialize the client with your API Key
+    api_key = os.getenv("AGENTMAIL_API_KEY")
+    client = AgentMail(api_key=api_key)
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(
-            os.environ["EMAIL_ADDRESS"],
-            os.environ["EMAIL_PASSWORD"],
+    # Note: inbox_id is the email address you set up in the AgentMail dashboard
+    inbox_id = os.getenv("AGENTMAIL_INBOX_ID") 
+    recipient = os.getenv("RECEIVER_EMAIL")
+
+    try:
+        sent_message = client.inboxes.messages.send(
+            inbox_id=inbox_id,
+            to=recipient,
+            subject=subject,
+            text=body,
         )
-        server.send_message(msg)
+        print(f"✅ Message sent successfully with ID: {sent_message.message_id}")
+    except Exception as e:
+        print(f"❌ AgentMail Error: {e}")

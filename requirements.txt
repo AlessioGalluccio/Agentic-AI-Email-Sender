@@ -7,3 +7,5 @@ duckduckgo-search
 beautifulsoup4
 ddgs
 langgraph
+agentmail
+datetime

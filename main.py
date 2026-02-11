@@ -3,6 +3,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.tools import DuckDuckGoSearchRun
 from dotenv import load_dotenv
 from my_email_script import send_email
+from datetime import datetime
 
 load_dotenv()
 
@@ -29,9 +30,11 @@ for output in app.stream(inputs):
                         print(text)
                         final_answer += text + "\n\n"  # accumulate for email
 
+today_str = datetime.now().strftime("%Y-%m-%d")
+
 # Send email if we got any text
 if final_answer:
     send_email(
-        subject="Daily Physical AI Recap",
+        subject=f"Daily Physical AI Recap - {today_str}",
         body=final_answer
     )
